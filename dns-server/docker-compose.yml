@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  bind:
+    image: coredns/coredns:latest
+    # ports:
+    #   - "53:53/udp"
+    #   - "53:53/tcp"
+    volumes:
+      - ./Corefile:/etc/coredns/Corefile
+      - ./data:/data
+      - ./config:/config
+    
+    environment:
+      - TZ=Asia/Bangkok
+    command: -conf /etc/coredns/Corefile

@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+  bind:
+    image: ubuntu/bind9:latest
+    # ports:
+      # - "53:53/udp"
+      # - "53:53/tcp"
+    volumes:
+      - ./bind:/etc/bind:rw
+      # - ./cache:/var/cache/bind:rw
+    environment:
+      - TZ=Asia/Bangkok
+    # command: chown -R bind:root /etc/bind /var/cache/bind
+    # restart: always
